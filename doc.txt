@@ -1,0 +1,11 @@
+b1. tạo folder server và client (có thể tạo sau)
+b2. SERVER:
+	tạo folder server: npm init -y (tạo file packet.json)
+	ở folder server sẽ tải những thư viện để viết api: nodemon, cors, express, mongodb, mongoose, dotenv, bcrypt(mã hóa password)
+		npm install {những thư viện cần sử dụng}
+	tạo 1 folder src trong server
+	tạo 1 file .env trong server (file .env là file lưu trữ những thông tin bảo mật ví dụ: port,
+	 password, username của tài khoản mongodb(data base) )
+b3. tạo file .gitignore (/node_modules + .env) (những thứ cần bảo mật)
+b4. tạo dự án mới trên git lưu 
+b5. git init
