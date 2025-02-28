@@ -3,9 +3,40 @@ b2. SERVER:
 	tạo folder server: npm init -y (tạo file packet.json)
 	ở folder server sẽ tải những thư viện để viết api: nodemon, cors, express, mongodb, mongoose, dotenv, bcrypt(mã hóa password)
 		npm install {những thư viện cần sử dụng}
+
+	sử dụng nodemon phải khai báo lại trong file packet.json( "start": "nodemon src/view/app.js")
+
 	tạo 1 folder src trong server
+
 	tạo 1 file .env trong server (file .env là file lưu trữ những thông tin bảo mật ví dụ: port,
 	 password, username của tài khoản mongodb(data base) )
+
 b3. tạo file .gitignore (/node_modules + .env) (những thứ cần bảo mật)
+
 b4. tạo dự án mới trên git lưu 
+
 b5. git init
+
+b6. 1.trong 1 file .env khai báo theo dạng tên biến viết hoa toàn bộ ví dụ DB_NAME = library.
+	2.trong src tạo 1 folder view/app.js(đây là file bắt đầu của dự án)
+	3.trong src tạo lần lượt các foler config(chứa liên kết với database và quản lý phản hồi,thông báo)
+	4.trong src tạo lần lượt các foler Models(là khai báo database, tạo thuộc tính schema)
+	5.trong src tạo lần lượt các foler Controllers(folder này là folder để viết những api chính)
+	6.trong src tạo lần lượt các foler Routes(sẽ sử dụng Controllers và Middlewares để kết nối với file app.js)
+	7. *** Tạo xong các bước trên -> bắt đầu từ Models (table trong db)
+	8. Tạo file Middlewares/baseToken.js (quản lý token, bảo mật thông tin api) (đã tạo, có xài nữa copy y chang)
+	9. Tạo file config/initDB.js (kết nối đến db) (copy theo y chang)
+	10. Tạo file config/response.js (quản lý phản hồi từ api về phía người dùng)
+	11. Bắt đầu viết API từ Controllers 
+	12. Tạo các folder trong Routes tương tự bên folder Controllers
+	13. Tạo file index.js (quản lý tất cả các API trong Routes)
+	14. Vào index.js 
+	
+	---- Mỗi khi muốn update thêm db, phải create trong Model trước.
+
+	15. Tất cả api (trừ api login, register) -> thêm verifyToken ở giữa. verifyToken được khai báo tại Middlewares
+
+	---- Mỗi khi khai báo xong 1 api nào đó -> export nó ra trong file index.js (file quản lý tất cả các route)
+
+	--- Test api trong postman: để sử dụng tất cả các api, cần phải login thành công -> lấy được token -> vào Postman -> Header -> Key=token , value = {token vừa copy}
+
