@@ -1,5 +1,5 @@
 const { successCode, errorCode, failCode } = require('../../config/response');
-const RoleModel = require('../../Middlewares/Models/Role.model');
+const RoleModel = require('../../Models/Role.model');
 
 const getRole = async (req, res) => {
     try {

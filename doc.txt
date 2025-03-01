@@ -40,3 +40,8 @@ b6. 1.trong 1 file .env khai báo theo dạng tên biến viết hoa toàn bộ 
 
 	--- Test api trong postman: để sử dụng tất cả các api, cần phải login thành công -> lấy được token -> vào Postman -> Header -> Key=token , value = {token vừa copy}
 
+	--- Khi test api trả về lỗi 500 (backend error) thì tắt  command try catch để log ra lỗi -> fix -> sau khi fix xong nhớ bật lại try catch
+
+	--- http://localhost:5000/api/nguoi-dung/get-all-nguoi-dung?keyword=vq&order Khi truyền params vào api, param đầu tiên sau api sẽ là ?, tất cả các params còn lại sẽ dùng &
+	
+	--- Những bảng có liên kết khoá phụ(ref) khi trả dữ liệu về muốn lấy toàn bộ thông tin thay vì objectId thì sử dụng populate('','')

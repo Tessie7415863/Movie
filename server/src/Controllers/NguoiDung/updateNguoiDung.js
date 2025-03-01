@@ -1,9 +1,9 @@
 const { successCode, errorCode, failCode } = require("../../config/response");
-const NguoiDung = require("../../Middlewares/Models/NguoiDung.model");
+const NguoiDung = require("../../Models/NguoiDung.model");
 
 const updateNguoiDung = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { id } = req.query;
         const { ho_ten, email, so_dt, mat_khau } = req.body;
         const nguoidung = await NguoiDung.findOneAndUpdate(
             { _id: id },

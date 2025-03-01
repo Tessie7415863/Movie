@@ -1,5 +1,5 @@
 const { failCode, errorCode, successCodeLogin } = require("../../config/response");
-const NguoiDung = require("../../Middlewares/Models/NguoiDung.model");
+const NguoiDung = require("../../Models/NguoiDung.model");
 const bcrypt = require('bcrypt');
 const Login = async (req, res) => {
     try {

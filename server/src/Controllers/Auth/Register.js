@@ -1,5 +1,5 @@
-const NguoiDung = require("../../Middlewares/Models/NguoiDung.model");
-const Role = require("../../Middlewares/Models/Role.model");
+const NguoiDung = require("../../Models/NguoiDung.model");
+const Role = require("../../Models/Role.model");
 const { successCode, errorCode, failCode } = require('../../config/response');
 const bcrypt = require('bcrypt');
 

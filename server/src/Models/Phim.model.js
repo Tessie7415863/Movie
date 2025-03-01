@@ -34,4 +34,4 @@ const PhimSchema = new Schema({
     versionKey: false,
 });
 
-module.exports = mongoose.model('Phim', PhimSchema);
+module.exports = mongoose.model('Phim', PhimSchema);    
