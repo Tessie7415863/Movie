@@ -16,7 +16,16 @@ const PhimSchema = new Schema({
         type: String,
     },
     ngay_khoi_chieu: {
-        type: String,
+        type: Date,
+        required: true,
+        validate: {
+            validator: function (value) {
+                const start = new Date('2025-03-01');
+                const end = new Date('2025-12-31');
+                return value >= start && value <= end;
+            },
+            message: props => `Ngày khởi chiếu (${props.value}) phải nằm trong khoảng từ 2023-01-01 đến 2023-12-31!`
+        }
     },
     danh_gia: {
         type: Number,

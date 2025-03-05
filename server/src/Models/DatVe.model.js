@@ -5,6 +5,7 @@ const DatVeSchema = new Schema({
     ma_lich_chieu: {
         type: String,
         required: true,
+        ref: 'LichChieu',
     },
     ma_ghe: {
         type: Schema.Types.ObjectId,

@@ -47,6 +47,19 @@ const getAllGhe = require('./Ghe/getAllGhe');
 const createPhim = require('./Phim/createPhim');
 const updatePhim = require('./Phim/updatePhim');
 const deletePhim = require('./Phim/deletePhim');
+const getAllPhim = require('./Phim/getAllPhim');
+
+//LichChieu
+const createLichChieu = require('./LichChieu/createLichChieu');
+const updateLichChieu = require('./LichChieu/updateLichChieu');
+const deleteLichChieu = require('./LichChieu/deleteLichChieu');
+const getAllLichChieu = require('./LichChieu/getAllLichChieu');
+
+//DatVe
+const createDatVe = require('./DatVe/createDatVe');
+const updateDatVe = require('./DatVe/updateDatVe');
+const deleteDatVe = require('./DatVe/deleteDatVe');
+const getAllDatVe = require('./DatVe/getAllDatVe');
 
 //auth
 rootRoute.use('/auth', Login)
@@ -94,5 +107,19 @@ rootRoute.use('/ghe', getAllGhe)
 rootRoute.use('/phim', createPhim)
 rootRoute.use('/phim', updatePhim)
 rootRoute.use('/phim', deletePhim)
+rootRoute.use('/phim', getAllPhim)
+
+//LichChieu
+rootRoute.use('/lich-chieu', createLichChieu)
+rootRoute.use('/lich-chieu', updateLichChieu)
+rootRoute.use('/lich-chieu', deleteLichChieu)
+rootRoute.use('/lich-chieu', getAllLichChieu)
+
+
+//DatVe
+rootRoute.use('/dat-ve', createDatVe)
+rootRoute.use('/dat-ve', updateDatVe)
+rootRoute.use('/dat-ve', deleteDatVe)
+rootRoute.use('/dat-ve', getAllDatVe)
 
 module.exports = rootRoute;

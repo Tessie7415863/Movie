@@ -4,6 +4,7 @@ const Phim = require("../../Models/Phim.model");
 const updatePhim = async (req, res) => {
     try {
         const { id } = req.query;
+        // fromDay, toDay
         const { ten_phim, trailer, hinh_anh, mo_ta, ngay_khoi_chieu, danh_gia, hot, dang_chieu, sap_chieu } = req.body;
         const phim = await Phim.findOneAndUpdate({ _id: id },
             {

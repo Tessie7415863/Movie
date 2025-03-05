@@ -12,6 +12,7 @@ const createCumRap = async (req, res) => {
             dia_chi,
             ma_he_thong_rap
         });
+        await cumrap.populate('ma_he_thong_rap');
         return successCode(res, cumrap, "Tạo cụm rạp thành công!");
     } catch (error) {
         return errorCode(res, "Back-end error!");

@@ -11,11 +11,29 @@ cloudinary.config({
 // Hàm tạo storage động theo folder
 const createStorage = (folder) => new CloudinaryStorage({
     cloudinary,
-    params: {
-        folder: folder,
-        allowedFormats: ['jpg', 'png', 'jpeg'],
-    },
+    params: (req, file) => {
+        if (file.fieldname === 'trailer') {
+            return {
+                folder: folder,
+                allowedFormats: ['mp4', 'mov', 'avi', 'wmv', 'flv', 'webm', 'mkv'],
+                resource_type: "video",
+                transformation: [
+                    { fetch_format: "mp4" }
+                ]
+            };
+        } else {
+            return {
+                folder: folder,
+                allowedFormats: ['jpg', 'png', 'jpeg', 'webp'],
+                resource_type: "image",
+                transformation: [
+                    { quality: "auto", fetch_format: "webp" }
+                ]
+            };
+        }
+    }
 });
+
 
 // Hàm tạo middleware upload cho từng loại hình ảnh
 const uploadCloud = (folder) => multer({ storage: createStorage(folder) });

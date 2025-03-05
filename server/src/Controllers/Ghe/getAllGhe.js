@@ -12,7 +12,16 @@ const getAllGhe = async (req, res) => {
     const { id } = req.query;
     try {
         if (id) {
-            const ghe = await Ghe.findOne({ _id: id }).populate("ma_rap", "ma_rap ten_rap");
+            const ghe = await Ghe.findOne({ _id: id }).populate({
+                path: 'ma_rap',
+                populate: {
+                    path: 'ma_cum_rap',
+                    populate: {
+                        path: 'ma_he_thong_rap',
+                        select: 'ten_he_thong_rap logo'
+                    }
+                }
+            });
             if (!ghe) {
                 return failCode(res, "Không tìm thấy ghế!");
             }
@@ -34,7 +43,16 @@ const getAllGhe = async (req, res) => {
             .sort({ [sortBy]: sortOrder })
             .skip(skip)
             .limit(limitInt)
-            .populate("ma_rap", "ma_rap ten_rap");
+            .populate({
+                path: 'ma_rap',
+                populate: {
+                    path: 'ma_cum_rap',
+                    populate: {
+                        path: 'ma_he_thong_rap',
+                        select: 'ten_he_thong_rap logo'
+                    }
+                }
+            });
         // Đếm tổng số ghế
         const totalGhes = await Ghe.countDocuments(filter)
         // Tính tổng số trang

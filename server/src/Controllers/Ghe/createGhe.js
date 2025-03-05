@@ -12,6 +12,16 @@ const createGhe = async (req, res) => {
             loai_ghe,
             ma_rap
         });
+        await ghe.populate({
+            path: 'ma_rap',
+            populate: {
+                path: 'ma_cum_rap',
+                populate: {
+                    path: 'ma_he_thong_rap',
+                    select: 'ten_he_thong_rap'
+                }
+            }
+        });
         return successCode(res, ghe, "Tạo ghế thành công!");
     } catch (error) {
         return errorCode(res, "Back-end error!");
